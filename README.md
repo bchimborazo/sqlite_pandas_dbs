@@ -28,4 +28,4 @@
  SELECT COUNT(*) AS n_patients FROM patients;
     ```
 - Results: The database contains 500 patient records total.
-![Query A Results](images\pic1.png)
+![Query A Results](images/pic1.png)
