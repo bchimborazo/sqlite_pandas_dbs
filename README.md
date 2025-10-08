@@ -1,6 +1,6 @@
 # HHA 504 Assignment 2: Single-Table Patient Roster in SQLite
 - Name: Blanca Chimborazo-Reyes
-- In this project I used Python to create a patient database in SQLite. I loaded patient data from the patients.csv file and ran SQL queries to analyze diagnoses, procedure codes etc. 
+- This assignment involved building a SQLite database from a schema using Python. I imported data from a CSV file (patients.csv) and executed SQL queries to examine various aspects of the data, including diagnoses and procedure codes.
 
 ## How To Recreate the Database
 - Install dependencies
@@ -18,7 +18,7 @@
 - Run Queries
     - Open clinic_simple.db in DB Broswer for SQLite
     - Go to the "Execute DQL" tab
-    - Run queries from sql/analysis.sql
+    - Run queries from sql/analysis.sql file
 
 ## Query Results
 ### Query A: Total Patient Count
@@ -27,7 +27,7 @@
 ```bash
 SELECT COUNT(*) AS n_patients FROM patients;
    ```
-- Explanation: This query counts the total number of patients in the database. The database contains 500 patient total
+- Explanation: This query counts the total number of patients in the database. The database contains 500 patient total. 
 
 ![QueryA](images/pic1.png)
 
@@ -40,7 +40,7 @@ FROM patients
 GROUP BY primary_icd10
 ORDER BY n DESC;
    ```
-- Explanation: This query groups patients by ICD-10 diagnosis code and counts how many patients have each diagnosis. The most common diagnosis is I10 (Essential Hypertension) with 81 patients, followed by E11.9 (Type 2 Diabetes) with 73 patients.
+- Explanation: This query tallies the number of patients associated with each unique primary ICD-10 diagnosis code and sorts the results from most to least common. The results show that I10 is the most common, occuring 81 times. 
 
 ![QueryB](images/pic2.png)
 
@@ -53,7 +53,8 @@ FROM patients
 WHERE last_cpt LIKE '992%' AND last_visit_dt >= '2025-01-01'
 ORDER BY last_visit_dt DESC;
    ```
-- Explanation: This query finds office visit procedures (CPT codes starting with 992) since January 1, 2025. 94 patients had office visits in 2025, with the most recent visits occurring in September 2025.
+- Explanation: This query selects the following columns: patient_id, last_CPT code, and last_visit_dt and searches for records where the "last_cpt" code starts with "992" and the "last_visit_dt" is on or after January 1st, 2025. Based on the results, 94 patients
+have had visits in 2025.  
 
 ![QueryC](images/pic3.png)
 
@@ -70,7 +71,8 @@ FROM patients
 ORDER BY age_years DESC
 LIMIT 5;
    ```
-- Explanation: This query calculates patient ages and show the 5 oldest patients. The five oldest patients are all 85 years old, born in 1940.
+- Explanation: This query looks at the "patient_id" and "birth_date" columns to calculate the patient's current age. The patients age is calculated by subtracting the Julian day of birth from the Julian day of the current date and dividing by 365.25. The results are ordered by age in descending order and limited to the top 5 results, showing the five oldest patients in the databse as being 85 years old. 
+
 
 ![QueryD](images/pic4.png)
 
@@ -82,6 +84,6 @@ SELECT *
 FROM patients
 WHERE primary_icd10 = '' OR last_cpt = '';
    ```
-- Explanation: This query check for any records with blank diagnosis or procedure codes. Based on the results, no data quality issues were found, all patient records have complete diagnosis and procedure codes.
+- Explanation: This query checks for any records with blank diagnosis or procedure codes. The results indicate that there are zero rows returned, meaning that every patient in the table has a value in both the primary_icd10 and last_cpt fields.
 
 ![QueryE](images/pic5.png)
