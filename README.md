@@ -54,7 +54,7 @@ WHERE last_cpt LIKE '992%' AND last_visit_dt >= '2025-01-01'
 ORDER BY last_visit_dt DESC;
    ```
 - Explanation: This query selects the following columns: patient_id, last_CPT code, and last_visit_dt and searches for records where the "last_cpt" code starts with "992" and the "last_visit_dt" is on or after January 1st, 2025. Based on the results, 94 patients
-have had visits in 2025.  
+had visits in 2025.  
 
 ![QueryC](images/pic3.png)
 
@@ -71,7 +71,7 @@ FROM patients
 ORDER BY age_years DESC
 LIMIT 5;
    ```
-- Explanation: This query looks at the "patient_id" and "birth_date" columns to calculate the patient's current age. The patients age is calculated by subtracting the Julian day of birth from the Julian day of the current date and dividing by 365.25. The results are ordered by age in descending order and limited to the top 5 results, showing the five oldest patients in the databse as being 85 years old. 
+- Explanation: This query looks at the "patient_id" and "birth_date" columns to calculate the patient's current age. The patient's age is calculated by subtracting Julian date of birth from the current Julian date and dividing that by 365.25. The results are ordered by age in descending order and limited to the top 5 results, showing the five oldest patients in the databse as being 85 years old. 
 
 
 ![QueryD](images/pic4.png)
@@ -84,6 +84,6 @@ SELECT *
 FROM patients
 WHERE primary_icd10 = '' OR last_cpt = '';
    ```
-- Explanation: This query checks for any records with blank diagnosis or procedure codes. The results indicate that there are zero rows returned, meaning that every patient in the table has a value in both the primary_icd10 and last_cpt fields.
+- Explanation: This query checks for any records with blank diagnosis or procedure codes. The results indicate that there are zero rows returned, meaning that every patient in the table has a value in the primary_icd10 and last_cpt fields.
 
 ![QueryE](images/pic5.png)
