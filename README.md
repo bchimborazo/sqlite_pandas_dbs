@@ -1,6 +1,6 @@
 # HHA 507 Assignment 2: Single-Table Patient Roster in SQLite
 - Name: Blanca Chimborazo-Reyes
-- This assignment involved building a SQLite database from a schema using Python. I imported data from a CSV file (patients.csv) and executed SQL queries to examine various aspects of the data, including diagnoses and procedure codes.
+- In this assignment, I create a SQLite database from a schema using Python. I imported data from a CSV file (patients.csv) and executed SQL queries to examine various aspects of the data, including diagnoses and procedure codes.
 
 ## How To Recreate the Database
 - Install dependencies
@@ -11,7 +11,7 @@
 ```bash
    python src/create_db.py
    ```
-- Load the CSV data: This imports the data from data/patients.csv into the databse
+- Load the CSV data: Import the data from data/patients.csv into the databse
  ```bash
    python src/import_csv.py
    ```
@@ -27,7 +27,7 @@
 ```bash
 SELECT COUNT(*) AS n_patients FROM patients;
    ```
-- Explanation: This query counts the total number of rows/patients in the database. There are 500 total. 
+- Explanation: This query counts the total number of patients in the database. There are 500 total. 
 
 ![QueryA](images/pic1.png)
 
