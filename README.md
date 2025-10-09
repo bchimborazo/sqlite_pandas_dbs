@@ -1,6 +1,6 @@
 # HHA 507 Assignment 2: Single-Table Patient Roster in SQLite
 - Name: Blanca Chimborazo-Reyes
-- In this assignment, I create a SQLite database from a schema using Python. I imported data from a CSV file (patients.csv) and executed SQL queries to examine various aspects of the data, including diagnoses and procedure codes.
+- In this assignment, I created a SQLite database from a schema using Python. I imported data from a CSV file (patients.csv) and executed SQL queries to examine various aspects of the data, including diagnoses and procedure codes.
 
 ## How To Recreate the Database
 - Install dependencies
